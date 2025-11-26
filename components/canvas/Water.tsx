@@ -7,32 +7,30 @@ import * as THREE from "three"
 export function Water() {
     const meshRef = useRef<THREE.Mesh>(null)
 
-    const geometry = useMemo(() => new THREE.PlaneGeometry(100, 100, 50, 50), [])
-
-    // Custom shader or material setup could go here. 
-    // For now, using a standard material with some transparency and movement.
+    const geometry = useMemo(() => new THREE.PlaneGeometry(100, 100, 128, 128), [])
 
     useFrame((state) => {
         if (!meshRef.current) return
         const time = state.clock.getElapsedTime()
 
-        // Simple wave animation by modifying vertices (if we were using a custom shader or modifying geometry)
-        // For a simple effect, we can just animate the texture offset or similar if we had one.
-        // Here we'll just let it sit as a calm surface for now, maybe add some gentle rotation or movement.
-
-        // To make it more like the reference, we need a shader.
-        // Let's stick to a simple blue transparent plane for the initial setup.
+        // Gentle wave movement
+        if (meshRef.current.position) {
+            meshRef.current.position.y = -2 + Math.sin(time * 0.2) * 0.2
+        }
     })
 
     return (
         <mesh ref={meshRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
             <primitive object={geometry} />
             <meshPhysicalMaterial
-                color="#0e7490" // Cyan-800/900
-                transmission={0.9}
-                opacity={0.8}
-                roughness={0.2}
-                metalness={0.1}
+                color="#0f172a" // Dark slate blue (slate-900)
+                transmission={0.6}
+                opacity={0.9}
+                roughness={0.1} // Very smooth for reflections
+                metalness={0.2}
+                reflectivity={0.8}
+                clearcoat={1}
+                clearcoatRoughness={0.1}
                 transparent
             />
         </mesh>

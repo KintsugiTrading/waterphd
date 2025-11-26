@@ -9,7 +9,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative z-10 py-12 border-t border-white/5 bg-slate-900/50 backdrop-blur-md">
+    <footer className="relative bg-[#050a10]/80 backdrop-blur-md border-t border-slate-800/50 py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}

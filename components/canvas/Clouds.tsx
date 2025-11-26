@@ -1,47 +1,52 @@
 "use client"
 
-import { Cloud } from "@react-three/drei"
+import { Clouds, Cloud } from "@react-three/drei"
+import * as THREE from "three"
 
-export function Clouds() {
+export function CloudsComponent() {
     return (
         <group>
-            <Cloud
-                position={[-4, 2, -10]}
-                speed={0.2}
-                opacity={0.7}
-                segments={40}
-                bounds={[10, 2, 2]}
-                volume={10}
-                color="#e2e8f0"
-            />
-            <Cloud
-                position={[4, 5, -15]}
-                speed={0.2}
-                opacity={0.6}
-                segments={40}
-                bounds={[10, 2, 2]}
-                volume={10}
-                color="#cbd5e1"
-            />
-            <Cloud
-                position={[0, 10, -20]}
-                speed={0.2}
-                opacity={0.5}
-                segments={40}
-                bounds={[20, 2, 2]}
-                volume={15}
-                color="#f1f5f9"
-            />
-            {/* Lower fog/clouds for atmosphere */}
-            <Cloud
-                position={[0, -5, -10]}
-                speed={0.1}
-                opacity={0.3}
-                segments={20}
-                bounds={[20, 2, 2]}
-                volume={5}
-                color="#94a3b8"
-            />
+            <Clouds material={THREE.MeshBasicMaterial} texture="/cloud.png">
+                <Cloud
+                    seed={1}
+                    scale={2}
+                    volume={5}
+                    color="#e2e8f0"
+                    fade={100}
+                    segments={40}
+                    bounds={[10, 2, 10]}
+                    position={[0, 15, -10]}
+                    opacity={0.5}
+                    speed={0.1}
+                />
+                <Cloud
+                    seed={2}
+                    scale={3}
+                    volume={6}
+                    color="#cbd5e1"
+                    fade={100}
+                    segments={40}
+                    bounds={[10, 2, 10]}
+                    position={[10, 12, -15]}
+                    opacity={0.4}
+                    speed={0.15}
+                />
+                <Cloud
+                    seed={3}
+                    scale={2.5}
+                    volume={4}
+                    color="#f1f5f9"
+                    fade={100}
+                    segments={40}
+                    bounds={[10, 2, 10]}
+                    position={[-10, 14, -12]}
+                    opacity={0.6}
+                    speed={0.12}
+                />
+            </Clouds>
         </group>
     )
 }
+
+// Renaming export to match previous usage or updating Scene.tsx
+export { CloudsComponent as Clouds }
