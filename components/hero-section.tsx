@@ -100,21 +100,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0a1628]">
-      {/* Animated canvas background */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ opacity: 0.8 }} />
-
-      {/* Gradient overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            radial-gradient(ellipse 80% 50% at 50% 100%, rgba(14, 116, 144, 0.4) 0%, transparent 60%),
-            radial-gradient(ellipse 100% 100% at 50% -20%, rgba(56, 189, 248, 0.1) 0%, transparent 50%)
-          `,
-        }}
-      />
-
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Content */}
       <div
         className="relative z-10 text-center px-6"

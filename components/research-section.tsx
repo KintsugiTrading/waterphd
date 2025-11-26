@@ -51,11 +51,6 @@ export function ResearchSection() {
       ref={sectionRef}
       id="research"
       className="relative min-h-screen py-32"
-      style={{
-        background: `linear-gradient(180deg, 
-          #1e293b 0%, 
-          #0f172a 100%)`,
-      }}
     >
       {/* Background grid pattern */}
       <div

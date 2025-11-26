@@ -6,12 +6,12 @@ import { PrecipitationSection } from "@/components/precipitation-section"
 import { ResearchSection } from "@/components/research-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { WaterParticles } from "@/components/water-particles"
+import { Scene } from "@/components/canvas/Scene"
 
 export default function Home() {
   return (
     <main className="relative">
-      <WaterParticles />
+      <Scene />
       <Navigation />
       <HeroSection />
       <EvaporationSection />

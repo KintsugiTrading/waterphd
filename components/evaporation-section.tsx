@@ -35,12 +35,6 @@ export function EvaporationSection() {
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: `linear-gradient(180deg, 
-          #0a1628 0%, 
-          #0c4a6e 40%, 
-          #0891b2 100%)`,
-      }}
     >
       {/* Rising vapor particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

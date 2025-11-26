@@ -85,13 +85,6 @@ export function CondensationSection() {
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: `linear-gradient(180deg, 
-          #0891b2 0%, 
-          #7dd3fc 30%,
-          #e0f2fe 60%,
-          #f8fafc 100%)`,
-      }}
     >
       {/* Animated clouds canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />

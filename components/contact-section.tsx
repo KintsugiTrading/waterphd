@@ -102,12 +102,6 @@ export function ContactSection() {
       ref={sectionRef}
       id="contact"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      style={{
-        background: `linear-gradient(180deg, 
-          #0f172a 0%, 
-          #0a1628 50%,
-          #071318 100%)`,
-      }}
     >
       {/* Background glow effect */}
       <div

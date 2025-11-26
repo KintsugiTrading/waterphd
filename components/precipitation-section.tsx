@@ -95,13 +95,6 @@ export function PrecipitationSection() {
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: `linear-gradient(180deg, 
-          #f8fafc 0%, 
-          #94a3b8 20%,
-          #475569 60%,
-          #1e293b 100%)`,
-      }}
     >
       {/* Rain canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
