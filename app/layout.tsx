@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "PhD student and Research Assistant at Oklahoma State University, specializing in Water Resources Management and Hydrology",
   keywords: ["hydrology", "water resources", "PhD", "Oklahoma State University", "flood control", "climate change"],
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
       </body>
