@@ -1,98 +1,36 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useWaterCycleStore } from "@/store/use-water-cycle-store"
 
 export function CondensationSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const setStage = useWaterCycleStore((state) => state.setStage)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.2 })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+        if (entry.isIntersecting) {
+          setStage('condensation')
+        }
+      },
+      { threshold: 0.5 }
+    )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
-  }, [])
-
-  // Cloud animation
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener("resize", resize)
-
-    let animationId: number
-    let time = 0
-
-    const drawCloud = (x: number, y: number, size: number, alpha: number) => {
-      ctx.beginPath()
-      const gradient = ctx.createRadialGradient(x, y, 0, x, y, size)
-      gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.4})`)
-      gradient.addColorStop(0.5, `rgba(226, 232, 240, ${alpha * 0.2})`)
-      gradient.addColorStop(1, `rgba(226, 232, 240, 0)`)
-      ctx.fillStyle = gradient
-      ctx.arc(x, y, size, 0, Math.PI * 2)
-      ctx.fill()
-    }
-
-    const animate = () => {
-      time += 0.005
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Draw multiple cloud layers
-      const clouds = [
-        { x: 0.1, y: 0.2, size: 200, speed: 0.3, alpha: 0.6 },
-        { x: 0.3, y: 0.35, size: 180, speed: 0.2, alpha: 0.5 },
-        { x: 0.5, y: 0.15, size: 220, speed: 0.25, alpha: 0.7 },
-        { x: 0.7, y: 0.4, size: 160, speed: 0.35, alpha: 0.4 },
-        { x: 0.85, y: 0.25, size: 190, speed: 0.15, alpha: 0.55 },
-        { x: 0.2, y: 0.5, size: 150, speed: 0.28, alpha: 0.45 },
-        { x: 0.6, y: 0.55, size: 170, speed: 0.22, alpha: 0.5 },
-        { x: 0.9, y: 0.6, size: 140, speed: 0.3, alpha: 0.4 },
-      ]
-
-      clouds.forEach((cloud) => {
-        const x = ((cloud.x * canvas.width + time * 50 * cloud.speed) % (canvas.width + 400)) - 200
-        const y = cloud.y * canvas.height + Math.sin(time + cloud.x * 10) * 20
-
-        // Draw cluster of circles for fluffy cloud effect
-        drawCloud(x, y, cloud.size, cloud.alpha)
-        drawCloud(x - cloud.size * 0.5, y + cloud.size * 0.2, cloud.size * 0.7, cloud.alpha * 0.8)
-        drawCloud(x + cloud.size * 0.6, y + cloud.size * 0.1, cloud.size * 0.6, cloud.alpha * 0.7)
-        drawCloud(x - cloud.size * 0.2, y - cloud.size * 0.3, cloud.size * 0.5, cloud.alpha * 0.6)
-        drawCloud(x + cloud.size * 0.3, y - cloud.size * 0.2, cloud.size * 0.55, cloud.alpha * 0.65)
-      })
-
-      animationId = requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      window.removeEventListener("resize", resize)
-      cancelAnimationFrame(animationId)
-    }
-  }, [])
+  }, [setStage])
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Animated clouds canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left visual */}
+          {/* Left visual - Simplified */}
           <div
             className="relative order-2 lg:order-1 transition-all duration-1000 delay-300"
             style={{
@@ -100,43 +38,9 @@ export function CondensationSection() {
               transform: isVisible ? "translateX(0) scale(1)" : "translateX(-60px) scale(0.95)",
             }}
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Cloud formation visual */}
-              {[...Array(5)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute rounded-full"
-                  style={{
-                    width: `${120 - i * 15}%`,
-                    height: `${120 - i * 15}%`,
-                    left: `${-10 + i * 7.5}%`,
-                    top: `${-10 + i * 7.5}%`,
-                    background: `radial-gradient(circle, rgba(148, 163, 184, ${0.15 - i * 0.02}) 0%, transparent 70%)`,
-                    animation: `cloud-pulse ${4 + i * 0.5}s ease-in-out infinite`,
-                    animationDelay: `${i * 0.4}s`,
-                  }}
-                />
-              ))}
-
-              {/* Center icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 relative">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <defs>
-                        <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgba(100, 116, 139, 0.8)" />
-                          <stop offset="100%" stopColor="rgba(71, 85, 105, 0.6)" />
-                        </linearGradient>
-                      </defs>
-                      <ellipse cx="50" cy="55" rx="35" ry="20" fill="url(#cloudGradient)" />
-                      <circle cx="35" cy="45" r="18" fill="url(#cloudGradient)" />
-                      <circle cx="55" cy="40" r="22" fill="url(#cloudGradient)" />
-                      <circle cx="70" cy="50" r="15" fill="url(#cloudGradient)" />
-                    </svg>
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Gathering</p>
-                </div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-center">
+                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Gathering</p>
               </div>
             </div>
           </div>
@@ -170,14 +74,6 @@ export function CondensationSection() {
           </div>
         </div>
       </div>
-
-      {/* Decorative gradient line */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px"
-        style={{
-          background: `linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.4) 50%, transparent)`,
-        }}
-      />
     </section>
   )
 }

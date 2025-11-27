@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { MousePointer } from "lucide-react"
+import { useWaterCycleStore } from "@/store/use-water-cycle-store"
 
 const cycleWords = [
   { word: "Evaporation", delay: 0 },
@@ -13,7 +14,8 @@ const cycleWords = [
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const setStage = useWaterCycleStore((state) => state.setStage)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -22,85 +24,25 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Animated water surface with WebGL-like effect
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener("resize", resize)
-
-    let animationId: number
-    let time = 0
-
-    const animate = () => {
-      time += 0.01
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Draw animated wave layers
-      for (let layer = 0; layer < 5; layer++) {
-        const layerOffset = layer * 0.3
-        const alpha = 0.03 + layer * 0.015
-
-        ctx.beginPath()
-        ctx.moveTo(0, canvas.height)
-
-        for (let x = 0; x <= canvas.width; x += 10) {
-          const y =
-            canvas.height * 0.7 +
-            Math.sin(x * 0.003 + time + layerOffset) * 30 +
-            Math.sin(x * 0.007 + time * 1.5 + layerOffset) * 20 +
-            Math.cos(x * 0.005 + time * 0.8 + layerOffset) * 15 +
-            layer * 20
-          ctx.lineTo(x, y)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStage('hero')
         }
-
-        ctx.lineTo(canvas.width, canvas.height)
-        ctx.closePath()
-
-        const gradient = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height)
-        gradient.addColorStop(0, `rgba(56, 189, 248, ${alpha})`)
-        gradient.addColorStop(1, `rgba(14, 116, 144, ${alpha + 0.05})`)
-        ctx.fillStyle = gradient
-        ctx.fill()
-      }
-
-      // Draw floating particles rising up (evaporation effect)
-      for (let i = 0; i < 50; i++) {
-        const x = (i * 37 + time * 30) % canvas.width
-        const baseY = canvas.height * 0.75
-        const y = baseY - ((time * 50 + i * 20) % (canvas.height * 0.5))
-        const size = 2 + Math.sin(i + time) * 1
-        const alpha = 0.3 - ((baseY - y) / (canvas.height * 0.5)) * 0.3
-
-        if (alpha > 0) {
-          ctx.beginPath()
-          ctx.arc(x, y, size, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(186, 230, 253, ${alpha})`
-          ctx.fill()
-        }
-      }
-
-      animationId = requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      window.removeEventListener("resize", resize)
-      cancelAnimationFrame(animationId)
-    }
-  }, [])
+      },
+      { threshold: 0.5 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [setStage])
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      ref={sectionRef}
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Content */}
       <div
         className="relative z-10 text-center px-6"

@@ -2,21 +2,15 @@
 
 import { Canvas } from "@react-three/fiber"
 import { Suspense } from "react"
-import { Water } from "./Water"
-import { Terrain } from "./Terrain"
-import { Clouds } from "./Clouds"
+import { AtmosphericCycle } from "./AtmosphericCycle"
 import { Environment } from "@react-three/drei"
 
 export function Scene() {
   return (
     <div className="fixed inset-0 -z-10">
-      <Canvas camera={{ position: [0, 5, 10], fov: 45 }}>
+      <Canvas camera={{ position: [0, 5, 10], fov: 45 }} shadows>
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <Water />
-          <Terrain />
-          <Clouds />
+          <AtmosphericCycle />
           <Environment preset="sunset" />
         </Suspense>
       </Canvas>

@@ -3,58 +3,32 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { useWaterCycleStore } from "@/store/use-water-cycle-store"
 
 export function EvaporationSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const setStage = useWaterCycleStore((state) => state.setStage)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
+        if (entry.isIntersecting) {
+          setStage('evaporation')
+        }
       },
-      { threshold: 0.1 },
+      { threshold: 0.5 }, // Trigger when 50% visible
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-      const rect = sectionRef.current.getBoundingClientRect()
-      const progress = Math.max(0, Math.min(1, 1 - rect.top / window.innerHeight))
-      setScrollProgress(progress)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [setStage])
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Rising vapor particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(40)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: `${(i * 2.5) % 100}%`,
-              bottom: `${-10 + (i % 3) * 5}%`,
-              width: `${4 + (i % 4) * 2}px`,
-              height: `${4 + (i % 4) * 2}px`,
-              background: `radial-gradient(circle, rgba(186, 230, 253, ${0.4 - (i % 4) * 0.08}) 0%, transparent 70%)`,
-              animation: `float-up ${12 + (i % 8) * 2}s ease-out infinite`,
-              animationDelay: `${(i % 12) * 0.8}s`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -94,7 +68,9 @@ export function EvaporationSection() {
             </Link>
           </div>
 
-          {/* Right visual */}
+          {/* Right visual - Simplified or removed since we have 3D bg now */}
+          {/* We can keep a subtle indicator or remove it entirely to let the 3D shine. 
+              I'll keep a minimal version of the text indicator but remove the heavy 2D graphics. */}
           <div
             className="relative transition-all duration-1000 delay-300"
             style={{
@@ -102,56 +78,14 @@ export function EvaporationSection() {
               transform: isVisible ? "translateX(0) scale(1)" : "translateX(60px) scale(0.95)",
             }}
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Animated rings */}
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute inset-0 rounded-full border"
-                  style={{
-                    borderColor: `rgba(56, 189, 248, ${0.3 - i * 0.06})`,
-                    transform: `scale(${0.6 + i * 0.15})`,
-                    animation: `pulse-ring ${3 + i * 0.5}s ease-in-out infinite`,
-                    animationDelay: `${i * 0.3}s`,
-                  }}
-                />
-              ))}
-
-              {/* Center content */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="relative w-32 h-32 mx-auto mb-6">
-                    {/* Animated water drop */}
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <defs>
-                        <linearGradient id="dropGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="rgba(56, 189, 248, 0.8)" />
-                          <stop offset="100%" stopColor="rgba(14, 116, 144, 0.9)" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M50 10 C50 10 20 50 20 65 C20 82 33 95 50 95 C67 95 80 82 80 65 C80 50 50 10 50 10"
-                        fill="url(#dropGradient)"
-                        className="animate-drop-morph"
-                      />
-                      <ellipse cx="35" cy="55" rx="8" ry="12" fill="rgba(255,255,255,0.2)" />
-                    </svg>
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/70">Rising Up</p>
-                </div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-center">
+                <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/70">Rising Up</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative line */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px"
-        style={{
-          background: `linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3) 50%, transparent)`,
-        }}
-      />
     </section>
   )
 }
