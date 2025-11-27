@@ -54,8 +54,8 @@ export function AtmosphericCycle() {
             <VolumetricClouds />
             <RainEffect />
 
-            {/* Fog for atmosphere */}
-            <fog attach="fog" args={['#87CEEB', 5, 60]} />
+            {/* Fog for atmosphere - using Exp2 for smoother falloff */}
+            <fogExp2 attach="fog" args={['#e0f2fe', 0.02]} />
         </>
     )
 }

@@ -26,9 +26,10 @@ export function VolumetricClouds() {
     return (
         <group ref={groupRef}>
             <Clouds material={THREE.MeshBasicMaterial}>
-                <Cloud seed={1} scale={2} volume={5} color="white" fade={100} />
-                <Cloud seed={2} scale={1} volume={3} color="#e0f2fe" fade={100} position={[5, 2, -5]} />
-                <Cloud seed={3} scale={1} volume={3} color="#e0f2fe" fade={100} position={[-5, 2, -5]} />
+                <Cloud seed={1} scale={2} volume={10} color="#ffffff" fade={30} speed={0.1} opacity={0.5} />
+                <Cloud seed={2} scale={1} volume={5} color="#e0f2fe" fade={30} position={[5, 2, -5]} speed={0.1} opacity={0.5} />
+                <Cloud seed={3} scale={1} volume={5} color="#e0f2fe" fade={30} position={[-5, 2, -5]} speed={0.1} opacity={0.5} />
+                <Cloud seed={4} scale={1.5} volume={8} color="#ffffff" fade={30} position={[0, 5, 0]} speed={0.1} opacity={0.4} />
             </Clouds>
         </group>
     )
