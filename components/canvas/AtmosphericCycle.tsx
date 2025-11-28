@@ -19,9 +19,12 @@ export function AtmosphericCycle() {
     // Target camera positions for each stage
     const cameraTargets = {
         hero: { pos: new THREE.Vector3(0, 5, 10), lookAt: new THREE.Vector3(0, 0, 0) },
-        evaporation: { pos: new THREE.Vector3(0, 2, 5), lookAt: new THREE.Vector3(0, 1, 0) }, // Close to ground/field
-        condensation: { pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0) }, // Up in sky
-        precipitation: { pos: new THREE.Vector3(0, 12, 12), lookAt: new THREE.Vector3(0, 5, 0) }, // Looking down at rain
+        // Evaporation: Low, looking slightly up at rising vapor
+        evaporation: { pos: new THREE.Vector3(0, 2, 5), lookAt: new THREE.Vector3(0, 2, 0) },
+        // Condensation: Pan UP into the clouds
+        condensation: { pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0) },
+        // Precipitation: Pan DOWN with the rain back to the scene
+        precipitation: { pos: new THREE.Vector3(0, 3, 8), lookAt: new THREE.Vector3(0, 2, 0) },
         research: { pos: new THREE.Vector3(0, 8, 15), lookAt: new THREE.Vector3(0, 0, 0) },
         contact: { pos: new THREE.Vector3(0, 20, 20), lookAt: new THREE.Vector3(0, 0, 0) },
     }
