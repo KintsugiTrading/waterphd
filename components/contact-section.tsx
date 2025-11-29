@@ -114,7 +114,7 @@ export function ContactSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
+      <div className="relative max-w-5xl mx-auto px-6 py-32 text-center">
         {/* Section header - Glassmorphic card */}
         <div
           className="relative mb-16 transition-all duration-1000"
@@ -124,7 +124,7 @@ export function ContactSection() {
           }}
         >
           {/* Glass panel background */}
-          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/20 via-slate-800/10 to-slate-900/20 backdrop-blur-md rounded-3xl border border-white/5 shadow-2xl" />
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/5 via-slate-800/3 to-slate-900/5 backdrop-blur-sm rounded-3xl border border-white/3 shadow-2xl" />
 
           <div className="relative p-8">
             <p className="text-cyan-400/90 text-sm uppercase tracking-[0.4em] mb-8 font-light drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">Let&apos;s Connect</p>

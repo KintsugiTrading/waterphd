@@ -28,7 +28,7 @@ export function CondensationSection() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
+      <div className="relative w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left visual - Simplified */}
           <div
@@ -54,7 +54,7 @@ export function CondensationSection() {
             }}
           >
             {/* Glass panel background */}
-            <div className="absolute inset-0 -m-8 bg-gradient-to-bl from-slate-900/20 via-slate-800/10 to-slate-900/20 backdrop-blur-md rounded-3xl border border-white/5 shadow-2xl" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-bl from-slate-900/5 via-slate-800/3 to-slate-900/5 backdrop-blur-sm rounded-3xl border border-white/3 shadow-2xl" />
 
             <div className="relative p-8">
               <div className="flex items-center gap-4 mb-8">

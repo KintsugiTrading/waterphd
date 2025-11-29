@@ -64,7 +64,7 @@ export function ResearchSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6">
         {/* Section header - Glassmorphic card */}
         <div
           className="relative mb-20 transition-all duration-1000"
@@ -74,7 +74,7 @@ export function ResearchSection() {
           }}
         >
           {/* Glass panel background */}
-          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/20 via-slate-800/10 to-slate-900/20 backdrop-blur-md rounded-3xl border border-white/5 shadow-2xl" />
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/5 via-slate-800/3 to-slate-900/5 backdrop-blur-sm rounded-3xl border border-white/3 shadow-2xl" />
 
           <div className="relative p-8">
             <p className="text-cyan-400/90 text-sm uppercase tracking-[0.4em] mb-6 font-light drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">Research Areas</p>
