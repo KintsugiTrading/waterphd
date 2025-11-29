@@ -124,12 +124,12 @@ export function ContactSection() {
           }}
         >
           <p className="text-cyan-700/80 text-sm uppercase tracking-[0.4em] mb-8 font-light">Let&apos;s Connect</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
             Collaborate
             <br />
             With Me
           </h2>
-          <p className="text-slate-600 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
             I thrive in collaborative environments and am always eager to explore new frontiers in water resource
             management.
           </p>

@@ -45,7 +45,7 @@ export function EvaporationSection() {
               <div className="h-px flex-1 bg-gradient-to-r from-cyan-700/50 to-transparent" />
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-900 mb-8 leading-tight">
               Evaporation
             </h2>
 
