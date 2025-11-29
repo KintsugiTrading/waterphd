@@ -77,7 +77,7 @@ export function ResearchSection() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 max-w-3xl leading-tight">
             Exploring the frontiers of water science
           </h2>
-          <p className="text-slate-400 text-xl max-w-2xl leading-relaxed">
+          <p className="text-white text-xl max-w-2xl leading-relaxed">
             My interdisciplinary research connects hydrology, sustainability, and technology to address the world&apos;s
             most pressing water challenges.
           </p>

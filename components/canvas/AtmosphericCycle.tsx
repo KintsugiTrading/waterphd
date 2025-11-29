@@ -9,7 +9,7 @@ import * as THREE from "three"
 import { useEffect, useRef } from "react"
 
 export function AtmosphericCycle() {
-    const { camera, scene } = useThree()
+    const { camera, scene, size } = useThree()
     const setStage = useWaterCycleStore((state) => state.setStage)
 
     // Refs for lights to animate them
@@ -33,7 +33,9 @@ export function AtmosphericCycle() {
         // For now, we'll assume roughly equal spacing or map to specific scroll points.
         // A better way is to map 0-1 progress to keyframes.
 
-        const keyframes = [
+        const isMobile = size.width < 768
+
+        const desktopKeyframes = [
             { t: 0.0, pos: new THREE.Vector3(0, 5, 10), lookAt: new THREE.Vector3(0, 0, 0), stage: 'hero' },
             { t: 0.15, pos: new THREE.Vector3(0, 2, 5), lookAt: new THREE.Vector3(0, 2, 0), stage: 'evaporation' },
             { t: 0.35, pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0), stage: 'condensation' },
@@ -41,6 +43,18 @@ export function AtmosphericCycle() {
             { t: 0.75, pos: new THREE.Vector3(0, 8, 15), lookAt: new THREE.Vector3(0, 0, 0), stage: 'research' },
             { t: 1.0, pos: new THREE.Vector3(0, 20, 20), lookAt: new THREE.Vector3(0, 0, 0), stage: 'contact' }
         ]
+
+        const mobileKeyframes = [
+            // Mobile: Lower camera and adjust lookAt to bring mountain peak more to center
+            { t: 0.0, pos: new THREE.Vector3(0, 4, 14), lookAt: new THREE.Vector3(0, 2, 0), stage: 'hero' },
+            { t: 0.15, pos: new THREE.Vector3(0, 3, 8), lookAt: new THREE.Vector3(0, 3, 0), stage: 'evaporation' },
+            { t: 0.35, pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0), stage: 'condensation' },
+            { t: 0.55, pos: new THREE.Vector3(0, 4, 10), lookAt: new THREE.Vector3(0, 2, 0), stage: 'precipitation' },
+            { t: 0.75, pos: new THREE.Vector3(0, 8, 18), lookAt: new THREE.Vector3(0, 0, 0), stage: 'research' },
+            { t: 1.0, pos: new THREE.Vector3(0, 20, 25), lookAt: new THREE.Vector3(0, 0, 0), stage: 'contact' }
+        ]
+
+        const keyframes = isMobile ? mobileKeyframes : desktopKeyframes
 
         // Find current keyframe segment
         let startFrame = keyframes[0]

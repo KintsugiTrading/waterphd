@@ -52,7 +52,7 @@ export function PrecipitationSection() {
               journey.
             </p>
 
-            <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
+            <p className="text-white text-lg leading-relaxed max-w-lg">
               My focus on flood control and sustainable water management aims to create real-world impact, helping
               communities adapt to changing climate patterns.
             </p>

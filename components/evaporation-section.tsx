@@ -54,7 +54,7 @@ export function EvaporationSection() {
               sustainable water resource management.
             </p>
 
-            <p className="text-slate-400 text-lg leading-relaxed mb-10 max-w-lg">
+            <p className="text-white text-lg leading-relaxed mb-10 max-w-lg">
               At Oklahoma State University, I study innovative approaches to flood control through regenerative
               agricultural practices in the Southern Great Plains, USA.
             </p>

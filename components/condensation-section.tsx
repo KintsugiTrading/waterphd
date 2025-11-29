@@ -67,7 +67,7 @@ export function CondensationSection() {
               collaboration.
             </p>
 
-            <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
+            <p className="text-white text-lg leading-relaxed max-w-lg">
               My work encompasses hydraulic modeling, remote sensing, machine learning, and the critical
               Water-Food-Energy Nexus that shapes our sustainable future.
             </p>
