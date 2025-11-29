@@ -29,7 +29,7 @@ export function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
-        scrolled ? "bg-[#0a1628]/40 backdrop-blur-xl border-b border-white/10" : "bg-[#0a1628]/30 backdrop-blur-lg border-b border-white/5",
+        scrolled ? "bg-[#0a1628]/20 backdrop-blur-lg border-b border-white/10" : "bg-[#0a1628]/5 backdrop-blur-sm border-b border-white/5",
       )}
     >
       <div className="max-w-7xl mx-auto px-6 py-5">

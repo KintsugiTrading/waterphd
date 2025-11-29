@@ -58,7 +58,7 @@ export function CondensationSection() {
               <span className="text-7xl md:text-8xl font-extralight text-slate-500/40">02</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
               Condensation
             </h2>
 

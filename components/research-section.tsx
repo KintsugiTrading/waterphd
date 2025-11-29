@@ -74,7 +74,7 @@ export function ResearchSection() {
           }}
         >
           <p className="text-cyan-700/80 text-sm uppercase tracking-[0.4em] mb-6 font-light">Research Areas</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 max-w-3xl leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 max-w-3xl leading-tight">
             Exploring the frontiers of water science
           </h2>
           <p className="text-slate-700 text-xl max-w-2xl leading-relaxed">

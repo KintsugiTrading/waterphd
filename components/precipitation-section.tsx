@@ -39,20 +39,20 @@ export function PrecipitationSection() {
             }}
           >
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-7xl md:text-8xl font-extralight text-cyan-400/30">03</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/50 to-transparent" />
+              <span className="text-7xl md:text-8xl font-extralight text-cyan-700/30">03</span>
+              <div className="h-px flex-1 bg-gradient-to-r from-cyan-700/50 to-transparent" />
             </div>
 
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
               Precipitation
             </h2>
 
-            <p className="text-slate-300 text-xl leading-relaxed mb-6 max-w-lg">
+            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
               The culmination of the cycle returns water to the earth, nourishing life and completing the eternal
               journey.
             </p>
 
-            <p className="text-white text-lg leading-relaxed max-w-lg">
+            <p className="text-slate-700 text-lg leading-relaxed max-w-lg">
               My focus on flood control and sustainable water management aims to create real-world impact, helping
               communities adapt to changing climate patterns.
             </p>
