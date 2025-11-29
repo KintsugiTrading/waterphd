@@ -9,7 +9,7 @@ const RainMaterial = new THREE.ShaderMaterial({
     uniforms: {
         uTime: { value: 0 },
         uColor: { value: new THREE.Color("#a5f3fc") },
-        uOpacity: { value: 0.6 },
+        uOpacity: { value: 0.25 },
         uHeight: { value: 40.0 }
     },
     vertexShader: `
@@ -84,10 +84,10 @@ export function RainEffect() {
     const meshRef = useRef<THREE.InstancedMesh>(null)
     const currentStage = useWaterCycleStore((state) => state.currentStage)
 
-    const count = 10000
+    const count = 5000
 
     // Create geometry for a single raindrop (thin elongated box)
-    const geometry = useMemo(() => new THREE.BoxGeometry(0.02, 0.8, 0.02), [])
+    const geometry = useMemo(() => new THREE.BoxGeometry(0.01, 0.8, 0.01), [])
 
     // Initial setup of instances
     const { speeds, offsets } = useMemo(() => {
