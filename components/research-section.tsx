@@ -74,7 +74,7 @@ export function ResearchSection() {
           }}
         >
           {/* Glass panel background */}
-          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/20 via-slate-800/10 to-slate-900/20 backdrop-blur-md rounded-3xl border border-white/5 shadow-2xl" />
 
           <div className="relative p-8">
             <p className="text-cyan-400/90 text-sm uppercase tracking-[0.4em] mb-6 font-light drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">Research Areas</p>

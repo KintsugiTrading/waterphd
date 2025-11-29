@@ -7,7 +7,7 @@ import { Environment } from "@react-three/drei"
 
 export function Scene() {
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 z-5 pointer-events-none">
       <Canvas camera={{ position: [0, 5, 10], fov: 45 }} shadows>
         <Suspense fallback={null}>
           <AtmosphericCycle />

@@ -39,7 +39,7 @@ export function PrecipitationSection() {
             }}
           >
             {/* Glass panel background */}
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/20 via-slate-800/10 to-slate-900/20 backdrop-blur-md rounded-3xl border border-white/5 shadow-2xl" />
 
             <div className="relative p-8">
               <div className="flex items-center gap-4 mb-8">
