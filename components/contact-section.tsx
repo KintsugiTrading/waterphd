@@ -115,24 +115,29 @@ export function ContactSection() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
-        {/* Section header */}
+        {/* Section header - Glassmorphic card */}
         <div
-          className="mb-16 transition-all duration-1000"
+          className="relative mb-16 transition-all duration-1000"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(40px)",
           }}
         >
-          <p className="text-cyan-700/80 text-sm uppercase tracking-[0.4em] mb-8 font-light">Let&apos;s Connect</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
-            Collaborate
-            <br />
-            With Me
-          </h2>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
-            I thrive in collaborative environments and am always eager to explore new frontiers in water resource
-            management.
-          </p>
+          {/* Glass panel background */}
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+
+          <div className="relative p-8">
+            <p className="text-cyan-400/90 text-sm uppercase tracking-[0.4em] mb-8 font-light drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">Let&apos;s Connect</p>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1), 0 0 20px rgba(56,189,248,0.2)' }}>
+              Collaborate
+              <br />
+              With Me
+            </h2>
+            <p className="text-slate-200/90 text-xl max-w-2xl mx-auto leading-relaxed">
+              I thrive in collaborative environments and am always eager to explore new frontiers in water resource
+              management.
+            </p>
+          </div>
         </div>
 
         {/* Contact links - Mont-Fort style cards */}

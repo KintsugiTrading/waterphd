@@ -45,32 +45,37 @@ export function CondensationSection() {
             </div>
           </div>
 
-          {/* Right content */}
+          {/* Right content - Glassmorphic card */}
           <div
-            className="order-1 lg:order-2 transition-all duration-1000"
+            className="relative order-1 lg:order-2 transition-all duration-1000"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? "translateX(0)" : "translateX(60px)",
             }}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-gradient-to-l from-slate-400/50 to-transparent" />
-              <span className="text-7xl md:text-8xl font-extralight text-slate-500/40">02</span>
+            {/* Glass panel background */}
+            <div className="absolute inset-0 -m-8 bg-gradient-to-bl from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+
+            <div className="relative p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-l from-slate-400/60 via-slate-500/40 to-transparent" />
+                <span className="text-7xl md:text-8xl font-extralight bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(148,163,184,0.3)]">02</span>
+              </div>
+
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1), 0 0 20px rgba(148,163,184,0.2)' }}>
+                Condensation
+              </h2>
+
+              <p className="text-slate-200/90 text-xl leading-relaxed mb-6 max-w-lg">
+                Like water vapor gathering to form clouds, knowledge accumulates through dedicated research and
+                collaboration.
+              </p>
+
+              <p className="text-slate-300/80 text-lg leading-relaxed max-w-lg">
+                My work encompasses hydraulic modeling, remote sensing, machine learning, and the critical
+                Water-Food-Energy Nexus that shapes our sustainable future.
+              </p>
             </div>
-
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-900 mb-8 leading-tight">
-              Condensation
-            </h2>
-
-            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
-              Like water vapor gathering to form clouds, knowledge accumulates through dedicated research and
-              collaboration.
-            </p>
-
-            <p className="text-slate-700 text-lg leading-relaxed max-w-lg">
-              My work encompasses hydraulic modeling, remote sensing, machine learning, and the critical
-              Water-Food-Energy Nexus that shapes our sustainable future.
-            </p>
           </div>
         </div>
       </div>

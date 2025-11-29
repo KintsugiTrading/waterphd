@@ -32,40 +32,45 @@ export function EvaporationSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left content */}
+          {/* Left content - Glassmorphic card */}
           <div
-            className="transition-all duration-1000"
+            className="relative transition-all duration-1000"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? "translateX(0)" : "translateX(-60px)",
             }}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-7xl md:text-8xl font-extralight text-cyan-700/30">01</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-cyan-700/50 to-transparent" />
+            {/* Glass panel background */}
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+
+            <div className="relative p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-7xl md:text-8xl font-extralight bg-gradient-to-br from-cyan-400 to-cyan-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]">01</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/60 via-cyan-500/40 to-transparent" />
+              </div>
+
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1), 0 0 20px rgba(56,189,248,0.2)' }}>
+                Evaporation
+              </h2>
+
+              <p className="text-slate-200/90 text-xl leading-relaxed mb-6 max-w-lg">
+                Just as water rises from oceans and lakes, my research journey began with a deep curiosity about
+                sustainable water resource management.
+              </p>
+
+              <p className="text-slate-300/80 text-lg leading-relaxed mb-10 max-w-lg">
+                At Oklahoma State University, I study innovative approaches to flood control through regenerative
+                agricultural practices in the Southern Great Plains, USA.
+              </p>
+
+              <Link
+                href="#research"
+                className="group inline-flex items-center gap-3 text-cyan-400 hover:text-cyan-300 transition-all duration-300"
+              >
+                <span className="text-sm uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">Learn more</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]" />
+              </Link>
             </div>
-
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-900 mb-8 leading-tight">
-              Evaporation
-            </h2>
-
-            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
-              Just as water rises from oceans and lakes, my research journey began with a deep curiosity about
-              sustainable water resource management.
-            </p>
-
-            <p className="text-slate-700 text-lg leading-relaxed mb-10 max-w-lg">
-              At Oklahoma State University, I study innovative approaches to flood control through regenerative
-              agricultural practices in the Southern Great Plains, USA.
-            </p>
-
-            <Link
-              href="#research"
-              className="group inline-flex items-center gap-3 text-cyan-700 hover:text-cyan-600 transition-colors"
-            >
-              <span className="text-sm uppercase tracking-[0.2em]">Learn more</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-            </Link>
           </div>
 
           {/* Right visual - Simplified or removed since we have 3D bg now */}

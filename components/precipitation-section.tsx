@@ -30,32 +30,37 @@ export function PrecipitationSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left content */}
+          {/* Left content - Glassmorphic card */}
           <div
-            className="transition-all duration-1000"
+            className="relative transition-all duration-1000"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? "translateX(0)" : "translateX(-60px)",
             }}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-7xl md:text-8xl font-extralight text-cyan-700/30">03</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-cyan-700/50 to-transparent" />
+            {/* Glass panel background */}
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+
+            <div className="relative p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-7xl md:text-8xl font-extralight bg-gradient-to-br from-cyan-400 to-cyan-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]">03</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/60 via-cyan-500/40 to-transparent" />
+              </div>
+
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1), 0 0 20px rgba(56,189,248,0.2)' }}>
+                Precipitation
+              </h2>
+
+              <p className="text-slate-200/90 text-xl leading-relaxed mb-6 max-w-lg">
+                The culmination of the cycle returns water to the earth, nourishing life and completing the eternal
+                journey.
+              </p>
+
+              <p className="text-slate-300/80 text-lg leading-relaxed max-w-lg">
+                My focus on flood control and sustainable water management aims to create real-world impact, helping
+                communities adapt to changing climate patterns.
+              </p>
             </div>
-
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
-              Precipitation
-            </h2>
-
-            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
-              The culmination of the cycle returns water to the earth, nourishing life and completing the eternal
-              journey.
-            </p>
-
-            <p className="text-slate-700 text-lg leading-relaxed max-w-lg">
-              My focus on flood control and sustainable water management aims to create real-world impact, helping
-              communities adapt to changing climate patterns.
-            </p>
           </div>
 
           {/* Right visual - Simplified */}

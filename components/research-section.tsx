@@ -65,22 +65,27 @@ export function ResearchSection() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section header */}
+        {/* Section header - Glassmorphic card */}
         <div
-          className="mb-20 transition-all duration-1000"
+          className="relative mb-20 transition-all duration-1000"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(40px)",
           }}
         >
-          <p className="text-cyan-700/80 text-sm uppercase tracking-[0.4em] mb-6 font-light">Research Areas</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 max-w-3xl leading-tight">
-            Exploring the frontiers of water science
-          </h2>
-          <p className="text-slate-700 text-xl max-w-2xl leading-relaxed">
-            My interdisciplinary research connects hydrology, sustainability, and technology to address the world&apos;s
-            most pressing water challenges.
-          </p>
+          {/* Glass panel background */}
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl" />
+
+          <div className="relative p-8">
+            <p className="text-cyan-400/90 text-sm uppercase tracking-[0.4em] mb-6 font-light drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">Research Areas</p>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 max-w-3xl leading-tight" style={{ textShadow: '0 0 40px rgba(255,255,255,0.1), 0 0 20px rgba(56,189,248,0.2)' }}>
+              Exploring the frontiers of water science
+            </h2>
+            <p className="text-slate-200/90 text-xl max-w-2xl leading-relaxed">
+              My interdisciplinary research connects hydrology, sustainability, and technology to address the world&apos;s
+              most pressing water challenges.
+            </p>
+          </div>
         </div>
 
         {/* Research cards - Mont-Fort style numbered grid */}
