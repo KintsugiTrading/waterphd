@@ -41,27 +41,27 @@ export function EvaporationSection() {
             }}
           >
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-7xl md:text-8xl font-extralight text-cyan-400/30">01</span>
-              <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/50 to-transparent" />
+              <span className="text-7xl md:text-8xl font-extralight text-cyan-700/30">01</span>
+              <div className="h-px flex-1 bg-gradient-to-r from-cyan-700/50 to-transparent" />
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 leading-tight">
               Evaporation
             </h2>
 
-            <p className="text-slate-300/90 text-xl leading-relaxed mb-6 max-w-lg">
+            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
               Just as water rises from oceans and lakes, my research journey began with a deep curiosity about
               sustainable water resource management.
             </p>
 
-            <p className="text-white text-lg leading-relaxed mb-10 max-w-lg">
+            <p className="text-slate-700 text-lg leading-relaxed mb-10 max-w-lg">
               At Oklahoma State University, I study innovative approaches to flood control through regenerative
               agricultural practices in the Southern Great Plains, USA.
             </p>
 
             <Link
               href="#research"
-              className="group inline-flex items-center gap-3 text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="group inline-flex items-center gap-3 text-cyan-700 hover:text-cyan-600 transition-colors"
             >
               <span className="text-sm uppercase tracking-[0.2em]">Learn more</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />

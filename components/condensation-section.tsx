@@ -55,19 +55,19 @@ export function CondensationSection() {
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-gradient-to-l from-slate-400/50 to-transparent" />
-              <span className="text-7xl md:text-8xl font-extralight text-slate-400/40">02</span>
+              <span className="text-7xl md:text-8xl font-extralight text-slate-500/40">02</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 leading-tight">
               Condensation
             </h2>
 
-            <p className="text-slate-300 text-xl leading-relaxed mb-6 max-w-lg">
+            <p className="text-slate-600 text-xl leading-relaxed mb-6 max-w-lg">
               Like water vapor gathering to form clouds, knowledge accumulates through dedicated research and
               collaboration.
             </p>
 
-            <p className="text-white text-lg leading-relaxed max-w-lg">
+            <p className="text-slate-700 text-lg leading-relaxed max-w-lg">
               My work encompasses hydraulic modeling, remote sensing, machine learning, and the critical
               Water-Food-Energy Nexus that shapes our sustainable future.
             </p>

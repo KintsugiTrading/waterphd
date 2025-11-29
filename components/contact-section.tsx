@@ -123,13 +123,13 @@ export function ContactSection() {
             transform: isVisible ? "translateY(0)" : "translateY(40px)",
           }}
         >
-          <p className="text-cyan-400/80 text-sm uppercase tracking-[0.4em] mb-8 font-light">Let&apos;s Connect</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white mb-8 leading-tight">
+          <p className="text-cyan-700/80 text-sm uppercase tracking-[0.4em] mb-8 font-light">Let&apos;s Connect</p>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-slate-800 mb-8 leading-tight">
             Collaborate
             <br />
             With Me
           </h2>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto leading-relaxed">
             I thrive in collaborative environments and am always eager to explore new frontiers in water resource
             management.
           </p>
@@ -174,11 +174,11 @@ export function ContactSection() {
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
           }}
         >
-          <div className="inline-block px-8 py-6 border border-slate-700/30 rounded-lg bg-slate-900/20">
-            <p className="text-slate-500 text-sm uppercase tracking-[0.2em] mb-2">
+          <div className="inline-block px-8 py-6 border border-slate-700/30 rounded-lg bg-slate-900/10 backdrop-blur-sm">
+            <p className="text-slate-600 text-sm uppercase tracking-[0.2em] mb-2">
               Biosystems and Agricultural Engineering
             </p>
-            <p className="text-2xl font-extralight text-white">Oklahoma State University</p>
+            <p className="text-2xl font-extralight text-slate-800">Oklahoma State University</p>
           </div>
         </div>
       </div>
