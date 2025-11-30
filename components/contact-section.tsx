@@ -101,7 +101,7 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden z-[60]"
     >
       {/* Background glow effect */}
       <div
