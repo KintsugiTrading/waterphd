@@ -37,7 +37,7 @@ export function BackgroundCycle() {
 
         // Smooth Fog Transition - warmer colors for farmland
         const targetFogColor = isPrecipitation ? new THREE.Color('#6b7c8a') : new THREE.Color('#d4e8f0')
-        const targetFogDensity = isPrecipitation ? 0.015 : 0.002 // Minimal fog for farm visibility
+        const targetFogDensity = isPrecipitation ? 0.012 : 0.0 // NO fog on hero for farm visibility
 
         if (scene.fog && scene.fog instanceof THREE.FogExp2) {
             scene.fog.color.lerp(targetFogColor, delta * 2.0)
@@ -53,7 +53,7 @@ export function BackgroundCycle() {
             <ProceduralTerrain />
 
             {/* Fog for atmosphere - using Exp2 for smoother falloff */}
-            <fogExp2 attach="fog" args={['#d4e8f0', 0.002]} />
+            <fogExp2 attach="fog" args={['#d4e8f0', 0.0]} />
         </>
     )
 }

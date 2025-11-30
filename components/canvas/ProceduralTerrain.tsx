@@ -19,37 +19,36 @@ export function ProceduralTerrain() {
         const count = geometry.attributes.position.count
         const colors = new Float32Array(count * 3)
 
-        // Colors - ULTRA HIGH CONTRAST Farm Palette
+        // Colors - EXTREME CONTRAST Farm Palette
         const cropColors = [
-            new THREE.Color("#1b5e20"), // Deep Emerald Green (Corn/Soy)
-            new THREE.Color("#ffeb3b"), // Bright Yellow (Wheat/Hay) - Maximum visibility
-            new THREE.Color("#43a047"), // Vibrant Green (Alfalfa)
-            new THREE.Color("#5d4037"), // Rich Brown (Tilled Soil)
-            new THREE.Color("#8bc34a"), // Lime Green (Young crops)
+            new THREE.Color("#006400"), // Dark Forest Green (Corn)
+            new THREE.Color("#FFD700"), // Pure Gold (Wheat)
+            new THREE.Color("#32CD32"), // Lime Green (Alfalfa) 
+            new THREE.Color("#8B4513"), // Saddle Brown (Tilled Soil)
+            new THREE.Color("#90EE90"), // Light Green (Young crops)
         ]
-        const roadColor = new THREE.Color("#3e2723") // Dark Brown/Black road
+        const roadColor = new THREE.Color("#1a0a00") // Almost black road
 
         for (let i = 0; i < count; i++) {
             const x = geometry.attributes.position.getX(i)
             const y = geometry.attributes.position.getY(i) // Actually Z in 3D space before rotation
 
-            // 1. Terrain Height Generation (Flatter for Plains)
+            // 1. Terrain Height Generation (COMPLETELY FLAT for Plains)
             let noise = 0
-            noise += noise2D(x * 0.015, y * 0.015) * 1.5 // Very gentle rolling hills
-            noise += noise2D(x * 0.05, y * 0.05) * 0.3 // Subtle variations
-            noise += noise2D(x * 0.2, y * 0.2) * 0.05 // Micro details
+            noise += noise2D(x * 0.01, y * 0.01) * 0.8 // Super gentle
+            noise += noise2D(x * 0.03, y * 0.03) * 0.2 // Minimal
 
             // Flatten the center area slightly for a "field" look
             const distFromCenter = Math.sqrt(x * x + y * y)
-            const flattenFactor = Math.max(0, 1 - distFromCenter / 40) // Wider flat area
-            noise *= (1 - flattenFactor * 0.6)
+            const flattenFactor = Math.max(0, 1 - distFromCenter / 50)
+            noise *= (1 - flattenFactor * 0.8)
 
             // Apply height
             geometry.attributes.position.setZ(i, noise)
 
-            // 2. Geometric Field Generation (The Jeffersonian Grid)
-            const fieldSize = 22 // Size of each crop field (LARGER for visibility)
-            const roadWidth = 2.5 // Width of dirt roads (WIDER for visibility)
+            // 2. Geometric Field Generation (GIANT FIELDS)
+            const fieldSize = 35 // MUCH LARGER fields for visibility
+            const roadWidth = 5.0 // VERY WIDE roads
 
             // Add some distortion to grid lines so they aren't perfectly straight (organic realism)
             const distortionX = noise2D(x * 0.05, y * 0.05) * 2
@@ -122,8 +121,6 @@ export function ProceduralTerrain() {
                     vertexColors
                     roughness={0.8}
                     metalness={0.1}
-                    emissive={new THREE.Color("#2d4a1e")}
-                    emissiveIntensity={0.15}
                     side={THREE.DoubleSide}
                 />
             </mesh>
