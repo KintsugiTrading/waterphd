@@ -19,9 +19,9 @@ export function ProceduralTerrain() {
         const count = geometry.attributes.position.count
         const colors = new Float32Array(count * 3)
 
-        // Colors
-        const colorBottom = new THREE.Color("#3a5a40") // Earthy green
-        const colorTop = new THREE.Color("#a3b18a") // Sage/Dry grass
+        // Colors - Vibrant farmland greens
+        const colorBottom = new THREE.Color("#4a7c59") // Rich grass green
+        const colorTop = new THREE.Color("#7cb342") // Bright field green
 
         for (let i = 0; i < count; i++) {
             const x = geometry.attributes.position.getX(i)
@@ -59,6 +59,8 @@ export function ProceduralTerrain() {
                     vertexColors
                     roughness={0.8}
                     metalness={0.1}
+                    emissive={new THREE.Color("#2d4a1e")}
+                    emissiveIntensity={0.15}
                     side={THREE.DoubleSide}
                 />
             </mesh>
