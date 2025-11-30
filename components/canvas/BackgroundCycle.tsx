@@ -25,8 +25,8 @@ export function BackgroundCycle() {
 
         // Smooth Lighting Transition (Precipitation check)
         const isPrecipitation = progress > 0.45 && progress < 0.65
-        const targetAmbient = isPrecipitation ? 0.35 : 0.6
-        const targetSun = isPrecipitation ? 0.3 : 1.0
+        const targetAmbient = isPrecipitation ? 0.4 : 0.7 // Brighter for visibility
+        const targetSun = isPrecipitation ? 0.4 : 1.0
 
         if (ambientRef.current) {
             ambientRef.current.intensity = THREE.MathUtils.lerp(ambientRef.current.intensity, targetAmbient, delta * 2.0)
@@ -37,7 +37,7 @@ export function BackgroundCycle() {
 
         // Smooth Fog Transition - warmer colors for farmland
         const targetFogColor = isPrecipitation ? new THREE.Color('#6b7c8a') : new THREE.Color('#d4e8f0')
-        const targetFogDensity = isPrecipitation ? 0.025 : 0.008 // Reduced from 0.03/0.015
+        const targetFogDensity = isPrecipitation ? 0.015 : 0.002 // Minimal fog for farm visibility
 
         if (scene.fog && scene.fog instanceof THREE.FogExp2) {
             scene.fog.color.lerp(targetFogColor, delta * 2.0)
@@ -47,13 +47,13 @@ export function BackgroundCycle() {
 
     return (
         <>
-            <ambientLight ref={ambientRef} intensity={0.6} />
+            <ambientLight ref={ambientRef} intensity={0.7} />
             <directionalLight ref={sunRef} position={[10, 10, 5]} intensity={1} castShadow />
 
             <ProceduralTerrain />
 
             {/* Fog for atmosphere - using Exp2 for smoother falloff */}
-            <fogExp2 attach="fog" args={['#d4e8f0', 0.008]} />
+            <fogExp2 attach="fog" args={['#d4e8f0', 0.002]} />
         </>
     )
 }

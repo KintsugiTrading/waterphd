@@ -19,15 +19,15 @@ export function ProceduralTerrain() {
         const count = geometry.attributes.position.count
         const colors = new Float32Array(count * 3)
 
-        // Colors - High Contrast Farm Palette
+        // Colors - ULTRA HIGH CONTRAST Farm Palette
         const cropColors = [
-            new THREE.Color("#2e7d32"), // Deep Green (Corn/Soy)
-            new THREE.Color("#ffd54f"), // Gold (Wheat/Hay) - High contrast
-            new THREE.Color("#558b2f"), // Olive (Alfalfa)
-            new THREE.Color("#795548"), // Brown (Tilled Soil) - High contrast
-            new THREE.Color("#aed581"), // Light Green (Young crops)
+            new THREE.Color("#1b5e20"), // Deep Emerald Green (Corn/Soy)
+            new THREE.Color("#ffeb3b"), // Bright Yellow (Wheat/Hay) - Maximum visibility
+            new THREE.Color("#43a047"), // Vibrant Green (Alfalfa)
+            new THREE.Color("#5d4037"), // Rich Brown (Tilled Soil)
+            new THREE.Color("#8bc34a"), // Lime Green (Young crops)
         ]
-        const roadColor = new THREE.Color("#8d6e63") // Dirt road color
+        const roadColor = new THREE.Color("#3e2723") // Dark Brown/Black road
 
         for (let i = 0; i < count; i++) {
             const x = geometry.attributes.position.getX(i)
@@ -48,8 +48,8 @@ export function ProceduralTerrain() {
             geometry.attributes.position.setZ(i, noise)
 
             // 2. Geometric Field Generation (The Jeffersonian Grid)
-            const fieldSize = 15 // Size of each crop field
-            const roadWidth = 0.8 // Width of dirt roads
+            const fieldSize = 22 // Size of each crop field (LARGER for visibility)
+            const roadWidth = 2.5 // Width of dirt roads (WIDER for visibility)
 
             // Add some distortion to grid lines so they aren't perfectly straight (organic realism)
             const distortionX = noise2D(x * 0.05, y * 0.05) * 2
