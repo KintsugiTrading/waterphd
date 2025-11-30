@@ -13,15 +13,15 @@ export function ProceduralTerrain() {
         const noise2D = createNoise2D()
         const width = 128
         const depth = 128
-        const size = 60 // Physical size
+        const size = 100 // Physical size
 
         const geometry = new THREE.PlaneGeometry(size, size, width, depth)
         const count = geometry.attributes.position.count
         const colors = new Float32Array(count * 3)
 
         // Colors
-        const colorBottom = new THREE.Color("#1a472a") // Deep green
-        const colorTop = new THREE.Color("#5d8a68") // Lighter green
+        const colorBottom = new THREE.Color("#3a5a40") // Earthy green
+        const colorTop = new THREE.Color("#a3b18a") // Sage/Dry grass
 
         for (let i = 0; i < count; i++) {
             const x = geometry.attributes.position.getX(i)
@@ -29,13 +29,13 @@ export function ProceduralTerrain() {
 
             // Multi-layered noise for detail
             let noise = 0
-            noise += noise2D(x * 0.03, y * 0.03) * 4
-            noise += noise2D(x * 0.1, y * 0.1) * 1
-            noise += noise2D(x * 0.5, y * 0.5) * 0.2
+            noise += noise2D(x * 0.02, y * 0.02) * 2.0 // Rolling hills base
+            noise += noise2D(x * 0.1, y * 0.1) * 0.5 // Medium details
+            noise += noise2D(x * 0.5, y * 0.5) * 0.1 // Fine details
 
             // Flatten the center area slightly for a "field" look
             const distFromCenter = Math.sqrt(x * x + y * y)
-            const flattenFactor = Math.max(0, 1 - distFromCenter / 20)
+            const flattenFactor = Math.max(0, 1 - distFromCenter / 30)
             noise *= (1 - flattenFactor * 0.5)
 
             // Apply height
