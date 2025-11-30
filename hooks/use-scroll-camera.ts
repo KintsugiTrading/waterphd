@@ -17,7 +17,7 @@ export function useScrollCamera() {
         const isMobile = size.width < 768
 
         const desktopKeyframes = [
-            { t: 0.0, pos: new THREE.Vector3(0, 5, 10), lookAt: new THREE.Vector3(0, 0, 0), stage: 'hero' },
+            { t: 0.0, pos: new THREE.Vector3(0, 8, 15), lookAt: new THREE.Vector3(0, -2, 0), stage: 'hero' }, // Look AT the farmland
             { t: 0.15, pos: new THREE.Vector3(0, 2, 5), lookAt: new THREE.Vector3(0, 2, 0), stage: 'evaporation' },
             { t: 0.35, pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0), stage: 'condensation' },
             { t: 0.55, pos: new THREE.Vector3(0, 3, 8), lookAt: new THREE.Vector3(0, 2, 0), stage: 'precipitation' },
@@ -26,7 +26,7 @@ export function useScrollCamera() {
         ]
 
         const mobileKeyframes = [
-            { t: 0.0, pos: new THREE.Vector3(0, 4, 14), lookAt: new THREE.Vector3(0, 2, 0), stage: 'hero' },
+            { t: 0.0, pos: new THREE.Vector3(0, 6, 18), lookAt: new THREE.Vector3(0, -2, 0), stage: 'hero' }, // Look AT the farm land
             { t: 0.15, pos: new THREE.Vector3(0, 3, 8), lookAt: new THREE.Vector3(0, 3, 0), stage: 'evaporation' },
             { t: 0.35, pos: new THREE.Vector3(0, 15, 10), lookAt: new THREE.Vector3(0, 10, 0), stage: 'condensation' },
             { t: 0.55, pos: new THREE.Vector3(0, 4, 10), lookAt: new THREE.Vector3(0, 2, 0), stage: 'precipitation' },
