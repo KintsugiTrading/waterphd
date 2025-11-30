@@ -7,11 +7,13 @@ import { ResearchSection } from "@/components/research-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { Scene } from "@/components/canvas/Scene"
+import { ForegroundScene } from "@/components/canvas/ForegroundScene"
 
 export default function Home() {
   return (
     <main className="relative">
       <Scene />
+      <ForegroundScene />
       <Navigation />
       <HeroSection />
       <EvaporationSection />
