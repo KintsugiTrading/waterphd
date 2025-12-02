@@ -29,4 +29,4 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Small Update
 
-Added README documentation for better project understanding.
+Reverted to commit 3cb1554 on 2025-12-02.
